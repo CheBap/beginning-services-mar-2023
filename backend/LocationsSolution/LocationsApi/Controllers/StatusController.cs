@@ -15,7 +15,7 @@ public class StatusController : ControllerBase
 
 
     // GET /status
-    [HttpGet("/status")]
+    [HttpGet("/support")]
     public async Task<ActionResult> GetStatus()
     {
         var sinceStartup = DateTime.Now - _clock.UpSince;
