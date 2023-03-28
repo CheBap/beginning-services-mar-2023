@@ -34,7 +34,7 @@ public class Program
             {
                 Name = "Bob Smith",
                 Phone = "888-8888",
-                Email = "bobsmith@gmail.com"
+                Email = "bob@company.com"
             };
             return Results.Ok(response);
         });
