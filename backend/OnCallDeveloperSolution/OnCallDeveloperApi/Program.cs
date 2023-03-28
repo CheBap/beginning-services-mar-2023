@@ -1,4 +1,5 @@
 using OnCallDeveloperApi.Models;
+using OnCallDeveloperApi.Services;
 
 public class Program
 {
@@ -12,7 +13,8 @@ public class Program
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
-
+        builder.Services.AddSingleton<ISystemTime, SystemTime>();
+        builder.Services.AddScoped<IProvideSupportSchedule, SupportSchedule>();
 
 
         var app = builder.Build();
@@ -28,8 +30,17 @@ public class Program
 
 
 
-        app.MapGet("/oncalldeveloper", () =>
+        app.MapGet("/oncalldeveloper", (IProvideSupportSchedule supportSchedule) =>
         {
+            OnCallDeveloperModel response;
+            if (supportSchedule.InternalSupportAvailable)
+            {
+                response = new OnCallDeveloperModel
+                {
+
+                };
+
+            }
             var response = new OnCallDeveloperModel
             {
                 Name = "Bob Smith",

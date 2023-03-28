@@ -1,12 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OnCallDeveloperApi.Services;
 
-namespace OnCallDeveloperApi.UnitTests
+
+
+namespace OnCallDeveloperApi.UnitTests;
+
+
+
+public class SupporScheduleTests
 {
-    internal class SupportScheduleTests
+    [Fact]
+    public void NoInHouseSupportOnWeekends()
     {
+        var supportSchedule = new SupportSchedule();
+
+
+
+        Assert.False(supportSchedule.InternalSupportAvailable);
+    }
+    [Fact]
+    public void InHouseSupportOnWeekDays()
+    {
+        var supportSchedule = new SupportSchedule();
+
+
+
+        Assert.True(supportSchedule.InternalSupportAvailable);
     }
 }
