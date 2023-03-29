@@ -1,14 +1,6 @@
-﻿namespace OnCallDeveloperApi.Services
+﻿namespace OnCallDeveloperApi.Services;
+
+public interface IProvideSupportSchedule
 {
-    public class IProvideSupportSchedule
-    {
-        public bool InternalSupportAvailable
-        {
-            get
-            {
-                var now = DateTime.Now;
-                return !(now.DayOfWeek == DayOfWeek.Sunday || now.DayOfWeek == DayOfWeek.Saturday);
-            }
-        }
-    }
+    bool InternalSupportAvailable { get; }
 }

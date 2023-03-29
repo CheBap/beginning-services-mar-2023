@@ -1,7 +1,5 @@
 ﻿namespace OnCallDeveloperApi.Models;
 
-
-
 public record OnCallDeveloperModel
 {
     public string Name { get; init; } = string.Empty;
